@@ -1,0 +1,1979 @@
+/* ============ CSS VARIABLES ============ */
+:root {
+    --primary-color: #00AEEF;
+    --secondary-color: #FF9500;
+    --text-color: #585858;
+    --border-color: #D9D9D9;
+    --container-max-width: 1300px;
+    --transition-speed: 0.2s;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ============ GLOBAL RESET FOR CONSISTENT RENDERING ============ */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Force consistent scaling */
+@media screen {
+
+    html,
+    body {
+        zoom: 1 !important;
+        -webkit-transform: scale(1) !important;
+        -moz-transform: scale(1) !important;
+        transform: scale(1) !important;
+    }
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-size: 16px;
+    height: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    min-height: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+    zoom: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+/* ============ NEW LAYOUT STYLES ============ */
+.main-layout {
+    display: flex;
+    margin-top: 60px;
+    margin: 0 auto;
+    align-items: flex-start;
+    width: 80%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.right-section {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.banner-image {
+    width: 100%;
+    text-align: center;
+}
+
+.banner-image img {
+    height: auto;
+    min-height: 220px;
+    object-fit: contain;
+}
+
+.banner-text {
+    text-align: center;
+    margin: 20px 0;
+    padding: 0 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.banner-text p {
+    color: #43ACF2;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.download-section {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.download-android,
+.download-ios {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.qr-code {
+    max-width: 180px;
+    height: auto;
+    width: 100%;
+}
+
+.download-btn {
+    max-width: 220px;
+    height: auto;
+    width: 200px;
+    transition: transform var(--transition-speed) ease;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+}
+
+.speed-test-container {
+    background-image: url(./../images/bg-main-pc.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 580px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 30px;
+    position: relative;
+}
+
+.page-speed-image {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.page-speed-image img {
+    max-width: 100%;
+    height: auto;
+    min-height: 65px;
+}
+
+.speed-links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 25px;
+    width: 100%;
+    max-width: 700px;
+}
+
+/* PC Links - Show on desktop/tablet, hide on mobile */
+.pc-links {
+    display: grid;
+}
+
+/* Mobile Links - Hide on desktop/tablet, show on mobile */
+.mobile-links {
+    display: none;
+}
+
+.speed-link-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform var(--transition-speed) ease;
+    min-height: 130px;
+}
+
+.speed-link-item:hover {
+    transform: translateY(-5px);
+}
+
+.link-icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.link-icon img {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    min-height: 110px;
+    object-fit: contain;
+}
+
+/* TABLET SMALL - 600px to 767px - Transition layout */
+@media screen and (min-width: 600px) and (max-width: 767px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .main-layout {
+        flex-direction: column;
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .right-section {
+        order: 1;
+        width: 100%;
+    }
+
+    .left-section {
+        order: 2;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .speed-test-container {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        border-radius: 15px;
+        max-width: 550px;
+        margin: 0 auto;
+    }
+
+    .speed-links-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 12px;
+        max-width: 450px;
+    }
+
+    .pc-links {
+        display: none;
+    }
+
+    .mobile-links {
+        display: grid;
+    }
+
+    .speed-link-item {
+        min-height: 90px;
+    }
+
+    .link-icon img {
+        min-height: 70px;
+    }
+
+    .speed-meter {
+        font-size: 0.8rem;
+        top: 40%;
+        left: 50%;
+        font-weight: 500;
+        color: #000;
+    }
+
+    .banner-image img {
+        min-height: 100px;
+    }
+
+    .banner-text p {
+        font-size: 1.2rem;
+    }
+
+    .download-section {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .download-android,
+    .download-ios {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .qr-code {
+        width: 100px;
+        max-width: 100px;
+    }
+
+    .download-btn {
+        width: 140px;
+        max-width: 140px;
+    }
+}
+
+/* MOBILE SMALL - max 599px */
+@media screen and (max-width: 599px) {
+    .link-icon img {
+        max-width: 110%;
+        width: 110%;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .main-layout {
+        margin-top: 5px;
+        gap: 0;
+        flex-direction: column;
+        overflow: visible;
+        width: 100%;
+    }
+
+    .right-section {
+        order: 1;
+        width: 100%;
+        padding: 0;
+    }
+
+    .left-section {
+        order: 2;
+        width: 100%;
+        gap: 0px;
+        padding: 0;
+    }
+
+    .speed-test-container {
+        margin: 0;
+        padding: 0px 0px;
+        width: 100%;
+    }
+
+    .speed-links-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        gap: 8px;
+    }
+
+    /* Hide PC links on small mobile */
+    .pc-links {
+        display: none;
+    }
+
+    /* Show mobile links on small mobile */
+    .mobile-links {
+        display: grid;
+    }
+
+    .speed-link-item {
+        min-height: 70px;
+    }
+
+    .link-icon img {
+        min-height: 60px;
+    }
+
+    .speed-meter {
+        font-size: 0.8rem;
+        top: 30%;
+    }
+
+    .banner-image img {
+        min-height: 120px;
+        max-width: 85%;
+    }
+
+    .banner-text {
+        margin: 10px 0;
+        padding: 0 15px;
+    }
+
+    .banner-text p {
+        font-size: 0.9rem;
+        line-height: 1.2;
+    }
+
+    .download-section {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .download-android,
+    .download-ios {
+        flex-direction: row;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .qr-code {
+        width: 100%;
+    }
+
+    .download-btn {
+        max-width: 100px;
+        width: 100px;
+    }
+
+    .title-text {
+        margin: 4px 0;
+        padding: 0 10px;
+    }
+
+    .title-text img {
+        max-width: 30%;
+    }
+
+    .logo-company {
+        max-width: 120px;
+        padding: 5px 0;
+    }
+}
+
+/* ============ RESET & BASE STYLES ============ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+*,
+body {
+    font-size: 16px;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+}
+
+.wp-banner {
+    background-image: url(./../images/bg-pc.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.img-phone {
+    filter: invert(1)
+}
+
+body {
+    background-color: #fff;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.dp-pc {
+    display: block !important;
+}
+
+.dp-mb {
+    display: none !important;
+}
+
+.wp-site {
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1300px !important;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    zoom: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+/* PC ONLY - Large container */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 2230px !important;
+    }
+}
+
+a {
+    cursor: pointer;
+}
+
+/* Logo */
+
+.logo-company {
+    max-width: 200px;
+    width: 100%;
+    margin: auto;
+    padding-top: 5px;
+    position: relative;
+    z-index: 1;
+    -webkit-animation: drift 2s infinite alternate;
+    animation: drift 2s infinite alternate;
+}
+
+.logo-company img {
+    width: 100%;
+    height: auto;
+}
+
+.title-text {
+    text-align: center;
+    margin: 5px 0;
+    padding: 0 20px;
+}
+
+.title-text img {
+    max-width: 35%;
+    height: auto;
+}
+
+/* Redirect Link */
+.bottom-redirect {
+    background: url(./../images/bg-download.png) no-repeat center center;
+    display: flex;
+    justify-content: center;
+    width: 831px;
+    height: 208px;
+    margin: 0 auto;
+}
+
+/* PC ONLY - Large download container */
+@media screen and (min-width: 768px) {
+    .bottom-redirect {
+        background-size: contain;
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        min-height: 340px;
+    }
+
+    .wp-speed-title {
+        height: 68px;
+    }
+}
+
+.wp-speed-title {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.wp-box-center {
+    width: 800px;
+}
+
+.wp-speed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 831px;
+    height: 506px;
+    background: url(./../images/speed-test.png) no-repeat center center;
+    margin: 0 auto;
+}
+
+/* PC ONLY - Large speed container */
+@media screen and (min-width: 768px) {
+    .wp-speed {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        min-height: 700px;
+        background-size: contain;
+    }
+}
+
+.wp-speed-content {
+    margin-top: 30px;
+}
+
+.wp-speed-text {
+    font-size: 30PX;
+    font-weight: 800;
+    color: #00AEEF;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.redirect-links {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    /* PC: 2 cột */
+    grid-template-rows: repeat(3, auto) !important;
+    /* PC: 3 hàng */
+    width: 100%;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+/* ============ RESPONSIVE BREAKPOINTS ============ */
+
+/* TABLET PORTRAIT - 768px to 1023px - Mobile-like layout */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        max-width: 1200px;
+    }
+
+    /* Mobile-like layout: single column */
+    .main-layout {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 25px;
+    }
+
+    /* Right section (speed test) comes first - like mobile */
+    .right-section {
+        order: 1;
+        width: 100%;
+    }
+
+    /* Left section (download) comes second - like mobile */
+    .left-section {
+        order: 2;
+        width: 100%;
+        gap: 15px;
+    }
+
+    /* Speed test container with mobile-like styling */
+    .speed-test-container {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        border-radius: 15px;
+        padding: 25px 15px;
+        margin: 0 auto;
+        max-width: 500px;
+        position: relative;
+    }
+
+    .page-speed-image {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .page-speed-image img {
+        min-height: 60px;
+        max-width: 100%;
+    }
+
+    /* Speed links grid - 2x3 for tablet */
+    .speed-links-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 12px;
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    /* Hide PC links, show mobile links on tablet */
+    .pc-links {
+        display: none;
+    }
+
+    .mobile-links {
+        display: grid;
+    }
+
+    .speed-link-item {
+        min-height: 85px;
+    }
+
+    .link-icon img {
+        min-height: 70px;
+        max-width: 100%;
+    }
+
+    .speed-meter {
+        font-size: 0.8rem;
+        top: 40%;
+        left: 50%;
+        font-weight: 500;
+        color: #000;
+    }
+
+    /* Banner styling */
+    .banner-image img {
+        max-width: 100%;
+        height: auto;
+        min-height: 100px;
+    }
+
+    .banner-text p {
+        font-size: 1.1rem;
+        color: #287796;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        margin: 10px 0;
+    }
+
+    /* Download section */
+    .download-section {
+        flex-direction: row;
+        gap: 25px;
+        justify-content: center;
+    }
+
+    .download-android,
+    .download-ios {
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .qr-code {
+        width: 100px;
+        max-width: 100px;
+    }
+
+    .download-btn {
+        width: 150px;
+        max-width: 150px;
+    }
+
+    /* Logo */
+    .logo-company {
+        max-width: 160px;
+        padding: 5px 0;
+    }
+
+    .title-text {
+        max-width: 200px;
+        margin: 0 auto 6px auto;
+    }
+}
+
+/* TABLET LANDSCAPE - 1024px to 1199px */
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+    .container {
+        max-width: 1600px !important;
+    }
+
+    .redirect-links {
+        max-width: 1400px !important;
+        gap: 20px !important;
+    }
+
+    .item-link .icon img,
+    .item-link img {
+        width: 500px !important;
+        min-width: 500px !important;
+    }
+
+    .wp-speed {
+        max-width: 1400px !important;
+        min-height: 600px !important;
+    }
+
+    .bottom-redirect {
+        max-width: 1200px !important;
+        min-height: 250px !important;
+    }
+}
+
+/* LARGE DESKTOP - 1200px and above */
+@media screen and (min-width: 1200px) {
+    .redirect-links {
+        max-width: 1800px !important;
+        gap: 10px !important;
+    }
+}
+
+.item-link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+}
+
+/* ============ PC DESKTOP STYLES (1024px+) ============ */
+@media screen and (min-width: 1024px) {
+    .item-link {
+        min-height: 120px !important;
+        padding: 15px !important;
+    }
+
+    .redirect-links .item-link .icon img,
+    .redirect-links .item-link img,
+    .item-link .icon img,
+    .item-link img {
+        max-width: none !important;
+        height: auto !important;
+        min-width: 476px !important;
+    }
+
+    .qr-app-row {
+        margin-top: 40px !important;
+        gap: 60px !important;
+    }
+
+    .qr-app-col {
+        width: 400px !important;
+        height: 250px !important;
+        gap: 15px !important;
+    }
+
+    .qr-app-col img.qr-img {
+        max-width: 280px !important;
+        width: 100% !important;
+        height: 180px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .qr-app-col a img {
+        max-width: 200px !important;
+        width: 100% !important;
+        height: 130px !important;
+        margin-bottom: 18px !important;
+    }
+
+    .logo-company {
+        max-width: 250px !important;
+        padding: 10px 0 !important;
+    }
+
+    .speed-meter {
+        font-size: 1.3rem !important;
+    }
+}
+
+/* ============ INTERACTIVE STATES ============ */
+.item-link {
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.item-link:hover {
+    transform: translateY(-2px);
+
+}
+
+.item-link:active {
+    transform: translateY(0);
+}
+
+/* CSS Grid items */
+.redirect-links .item-link {
+    display: grid;
+}
+
+/* Show/hide desktop vs mobile links */
+.domain-desktop {
+    display: block !important;
+}
+
+.domain-mobile {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    .domain-desktop {
+        display: none !important;
+    }
+
+    .domain-mobile {
+        display: block !important;
+    }
+}
+
+
+
+.icon-link.btn-link02 {
+    background-image: url(./../images/icon-link2.png);
+}
+
+.icon-link.btn-link03 {
+    background-image: url(./../images/icon-link3.png);
+}
+
+.icon-link.btn-link04 {
+    background-image: url(./../images/icon-link4.png);
+}
+
+.icon-link.btn-link05 {
+    background-image: url(./../images/icon-link5.png);
+}
+
+.icon-link.btn-link06 {
+    background-image: url(./../images/icon-link6.png);
+}
+
+.item-link .title {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 5px;
+    border-bottom: 1px solid #D9D9D9;
+    width: 100%;
+}
+
+.item-link .speed {
+    font-size: 16px;
+    color: #585858;
+    font-weight: 700;
+    padding: 0px;
+    position: absolute;
+    right: 9px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    top: 14px;
+}
+
+.item-link .btn-redirect {
+    padding: 2px 0px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.item-link .speed {
+    padding: 0px;
+    margin-bottom: 5px;
+}
+
+.item-link .btn-redirect:hover {
+    text-decoration: none !important;
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+
+.element-hover:hover {
+    text-decoration: none !important;
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+
+.item-link .title-top {
+    font-size: 18px;
+    color: #FF9500;
+}
+
+.item-link .btn-link {
+    text-decoration: none;
+    box-sizing: border-box;
+    color: #00AEEF;
+}
+
+.nhapnhay2 {
+    font-weight: 700;
+    animation: my02 1s infinite;
+    text-align: center
+}
+
+.br_right_bar {
+    position: fixed !important;
+    top: 80%;
+    transform: translateY(-50%);
+    right: 24px;
+    z-index: 9999;
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4.5px;
+    -webkit-animuiion: zoom 1.3s infinite;
+    animation: zoom 1.3s infinite;
+}
+
+.br_right_bar .right-item {
+    width: 100%;
+    height: auto;
+    gap: 4px;
+    position: relative;
+    transform: translate(-30px, 35px);
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: inset 0 -3.55px 4.733px 0 rgba(0, 0, 0, .25);
+
+}
+
+.br_right_bar .right-item .ellipse {
+    background: url(../images/ellipse-cskh.png);
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    -webkit-animation: shake 1.3s infinite;
+    animation: shake 1.3s infinite;
+}
+
+.br_right_bar .right-item .LIVECHAT {
+    width: 80%;
+    height: 80%;
+    background: url(../images/icon-cskh.png) no-repeat 50% / contain;
+    transform: rotate(-360deg);
+    /* Hoặc animation riêng để ngược lại */
+    /* animation: counterSpin 2s linear infinite; */
+}
+
+@keyframes counterSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+
+}
+
+.br_right_bar .right-item,
+.br_right_bar .right-item .rightbat-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.br_right_bar .right-item .rightbat-box .rightbar_title {
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes my02 {
+    0% {
+        color: #000;
+    }
+
+    50% {
+        color: #38497a;
+    }
+
+    to {
+        color: #000;
+    }
+}
+
+/* End Redirect Link */
+
+/* Banner VIP */
+
+.banner-vip {
+    width: 94%;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+}
+
+.banner-vip img {
+    width: 100%;
+    height: auto;
+}
+
+/* End Banner VIP */
+
+@media screen and (max-width: 1300px) {
+
+    .item-link .title {
+        font-size: 18px;
+    }
+
+    .item-link .btn-link {
+        font-size: 16px;
+    }
+
+    .wp-item-link {
+        padding: 10px 15px;
+    }
+
+    /* Layout */
+    .wp-box-center {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .wp-box-center {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .logo-company {
+        max-width: 160px;
+    }
+
+    .ds-image {
+        max-width: 240px;
+        margin-bottom: -45px;
+    }
+
+
+    .download-product {
+        padding: 14px 100px;
+        margin-top: 10px;
+    }
+
+    .product-item .product-title {
+        font-size: 14px;
+    }
+
+    .product-item .thumb-nail {
+        height: 65px;
+    }
+
+    .product-item {
+        height: 65px;
+    }
+
+    .wp-item-link {
+        padding: 5px 8px;
+    }
+
+    .icon-link {
+        min-height: 35px;
+        top: 6px;
+        left: 0px;
+    }
+
+    .list-btn-function {
+        gap: 10px;
+        padding: 0px;
+    }
+
+}
+
+@media screen and (max-width: 990px) {
+    .item-link .title {
+        font-size: 15px;
+    }
+
+    .item-link .btn-link {
+        font-size: 12px;
+        padding: 5px 15px;
+    }
+
+    .download-product {
+        padding: 14px 45px;
+    }
+
+    .bottom-redirect {
+        padding: 0px 0px;
+    }
+
+    .banner-vip {
+        width: 90%;
+    }
+
+    .text-sp {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 767px) and (min-width: 500px) {
+    .btn-function-sp {
+        height: 135px !important;
+    }
+}
+
+/* ============ RESPONSIVE STYLES ============ */
+/* ============ TABLET RESPONSIVE (768px - 1024px) ============ */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .main-layout {
+        flex-direction: row;
+        gap: 25px;
+        margin-top: 25px;
+        min-height: 70vh;
+        align-items: flex-start;
+    }
+
+    .left-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        justify-content: center;
+    }
+
+    .right-section {
+        flex: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .banner-image img {
+        min-height: 250px;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    .banner-text {
+        margin: 20px 0;
+        padding: 0 15px;
+    }
+
+    .banner-text p {
+        font-size: 1.3rem;
+        line-height: 1.4;
+    }
+
+    .download-section {
+        gap: 35px;
+        justify-content: center;
+        margin-top: 25px;
+    }
+
+    .download-android,
+    .download-ios {
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .qr-code {
+        max-width: 180px;
+        width: 180px;
+    }
+
+    .download-btn {
+        max-width: 200px;
+        width: 200px;
+    }
+
+    .speed-test-container {
+        background-image: url(./../images/bg-main-mb.png);
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        min-height: 550px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 45px 25px;
+        position: relative;
+    }
+
+    .page-speed-image {
+        margin-bottom: 35px;
+        text-align: center;
+    }
+
+    .page-speed-image img {
+        min-height: 70px;
+        max-width: 100%;
+    }
+
+    .speed-links-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 20px;
+        width: 100%;
+        max-width: 700px;
+    }
+
+    /* Hide PC links on mobile */
+    .pc-links {
+        display: none;
+    }
+
+    /* Show mobile links on mobile */
+    .mobile-links {
+        display: grid;
+    }
+
+    .speed-link-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        transition: transform var(--transition-speed) ease;
+        min-height: 110px;
+    }
+
+    .link-icon {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .link-icon img {
+        max-width: 100%;
+        height: auto;
+        width: 100%;
+        min-height: 90px;
+        object-fit: contain;
+    }
+
+    .speed-meter {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-weight: bold;
+        font-size: 1rem;
+        text-align: center;
+        pointer-events: none;
+        z-index: 2;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    .title-text {
+        margin: 6px 0;
+        padding: 0 15px;
+    }
+
+    .title-text img {
+        max-width: 32%;
+    }
+
+    .logo-company {
+        max-width: 200px;
+        padding: 8px 0;
+    }
+}
+
+/* ============ TABLET LANDSCAPE (1024px - 1199px) ============ */
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+    .main-layout {
+        gap: 25px;
+        margin-top: 25px;
+        min-height: 75vh;
+    }
+
+    .left-section {
+        gap: 10px;
+    }
+
+    .banner-image img {
+        min-height: 180px;
+    }
+
+    .banner-text p {
+        font-size: 1.1rem;
+    }
+
+    .download-section {
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .qr-code {
+        max-width: 150px;
+        width: 150px;
+    }
+
+    .download-btn {
+        max-width: 170px;
+        width: 170px;
+    }
+
+    .speed-test-container {
+        min-height: 480px;
+        padding: 35px 25px;
+    }
+
+    .page-speed-image img {
+        min-height: 80px;
+    }
+
+    .speed-links-grid {
+        gap: 18px;
+        max-width: 580px;
+    }
+
+    .speed-link-item {
+        min-height: 100px;
+    }
+
+    .link-icon img {
+        min-height: 85px;
+    }
+
+    .speed-meter {
+        font-size: 0.85rem;
+    }
+
+    .logo-company {
+        max-width: 180px;
+        padding: 8px 0;
+    }
+}
+
+/* ============ LARGE DESKTOP (1200px+) ============ */
+@media screen and (min-width: 1200px) {
+    .main-layout {
+        margin-top: 20px;
+    }
+
+    .banner-image img {
+        min-height: 200px;
+    }
+
+    .banner-text p {
+        font-size: 1.2rem;
+    }
+
+    .download-section {
+        gap: 35px;
+        margin-top: 15px;
+    }
+
+    .download-btn {
+        max-width: 190px;
+        width: 190px;
+    }
+
+    .speed-test-container {
+        min-height: 520px;
+        padding: 35px 25px;
+    }
+
+    .page-speed-image img {
+        min-height: 55px;
+    }
+
+    .speed-links-grid {
+        gap: 20px;
+        max-width: 650px;
+    }
+
+    .speed-link-item {
+        min-height: 115px;
+    }
+
+    .link-icon img {
+        min-height: 95px;
+    }
+
+    .speed-meter {
+        font-size: 1.3rem;
+    }
+
+    .logo-company {
+        max-width: 200px;
+        padding: 8px 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    * {
+        overflow: unset;
+    }
+
+    body {
+        overflow: auto;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .right-item img {
+        width: 50px;
+    }
+
+    .wp-banner {
+        height: auto;
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+        padding-bottom: 20px;
+    }
+
+    .wp-site {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .main-layout {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* Mobile: Right section first (Speed Test) */
+    .right-section {
+        order: 1;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    .left-section {
+        order: 2;
+    }
+
+    .speed-test-container {
+        background-image: none;
+        min-height: auto;
+        border-radius: 15px;
+        margin: 0;
+        width: 100%;
+    }
+
+    .page-speed-image {
+        margin-bottom: 20px;
+    }
+
+    .page-speed-image img {
+        min-height: 40px;
+        max-width: 200px;
+    }
+
+    .speed-links-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1rem;
+        max-width: 100%;
+    }
+
+    .speed-link-item {
+        max-width: 100%;
+        min-height: 80px;
+    }
+
+    .link-icon img {
+        min-height: 70px;
+    }
+
+    .speed-meter {
+        font-size: 0.8rem;
+        top: 35%;
+    }
+
+    /* Mobile: Left section (Banner & Download) */
+    .banner-image {
+        /* margin-bottom: 15px; */
+    }
+
+    .banner-image img {
+        min-height: 150px;
+        max-width: 70%;
+    }
+
+    .banner-text {
+        width: 100%;
+        bottom: -25px;
+    }
+
+    .banner-text p {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    .download-section {
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .download-android,
+    .download-ios {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .qr-code {
+        width: 100%;    
+        padding: 10px;
+    }
+
+    .download-btn {
+        max-width: 120px;
+        width: 120px;
+    }
+
+    .title-text {
+        margin: 5px 0;
+        padding: 0 15px;
+        width: 100%;
+    }
+
+    .title-text img {
+        max-width: 100%;
+    }
+
+    .logo-company {
+        max-width: 230px;
+        padding: 5px 0;
+    }
+
+    .row>* {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .row.wp-content-cskh img {
+        width: 100%;
+    }
+
+    .wp-speed-text {
+        font-size: 18px;
+
+    }
+
+    .wp-speed-text img {
+        width: 50%;
+    }
+
+    .br_right_bar .right-item {
+        width: 70px;
+        height: 70px;
+    }
+
+    .item-link .speed {
+        font-size: 10px;
+        top: 11px;
+    }
+
+
+    .image-title div {
+        padding: 20px 0;
+    }
+
+    .wp-taiapp-img img {
+        padding: 10px 0;
+    }
+
+    .image-title img {
+        width: 100%;
+    }
+
+    .br_right_bar {
+        top: 109%;
+        left: -59%;
+    }
+
+    video {
+        display: none;
+    }
+}
+
+/* ============ MOBILE STYLES (≤500px) ============ */
+@media screen and (max-width: 500px) {
+
+    /* Performance: Remove background images on mobile */
+    .wp-speed {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        background-image: none !important;
+    }
+
+
+    .br_right_bar {
+        transform: translate(-0px, -210px);
+    }
+
+    .bottom-redirect {
+        width: 100% !important;
+        height: auto !important;
+        background-image: none !important;
+    }
+
+    .wp-banner {
+        height: auto;
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+        padding-bottom: 20px;
+    }
+
+    .wp-site {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    /* Mobile: Single column layout */
+    .redirect-links {
+        grid-template-columns: 1fr !important;
+        margin-top: 5px !important;
+    }
+
+    .item-link img {
+        width: 100% !important;
+        max-width: 95vw !important;
+    }
+
+    .item-link .btn-link,
+    .item-link .title-top,
+    .item-link .title {
+        font-size: 3.2vw !important;
+    }
+
+    .item-link .btn-link {
+        padding: 5px 7px;
+    }
+
+    /* Mobile: QR section */
+    .qr-app-row {
+        display: none;
+    }
+
+    .qr-app-row-mb {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .qr-app-row-mb a {
+        display: inline-flex;
+    }
+
+    .qr-app-row-mb img {
+        max-width: 44vw;
+        height: auto;
+        display: block;
+    }
+
+    .wp-speed-title img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .wp-banner {
+        height: auto;
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+        padding-bottom: 20px;
+    }
+
+    .wp-site {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .item-link {
+        width: 100%;
+    }
+}
+
+.btn-function-sp {
+
+    background: linear-gradient(180deg, #019efb, #0176dc);
+
+}
+
+.speed-meter {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+    pointer-events: none;
+    line-height: 0.8;
+    z-index: 2;
+}
+
+.icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.link-label {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+    pointer-events: auto;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect cho domain links */
+.item-link:hover .link-label {
+    color: #e1fa03;
+}
+
+/* Hover effect cho toàn bộ item-link */
+.item-link:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 576px) {
+    .speed-meter {
+        font-size: 14px;
+        min-width: unset;
+        min-height: unset;
+        padding: 0;
+        left: 50%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+    }
+
+    .logo-company {
+        width: 140px;
+        padding: 10px;
+    }
+
+    .icon {
+        min-width: 48px;
+        min-height: 48px;
+    }
+
+    .left-section {
+        gap: 0px;
+    }
+
+    .download-btn {
+        max-width: 170px;
+        width: 170px;
+    }
+}
+
+@media (max-width: 576px) {
+    .link-label {
+        padding: 8px 20px;
+        font-size: 0.95rem;
+        bottom: 4%;
+        min-width: 80px;
+        max-width: 90vw;
+        white-space: normal;
+        text-align: center;
+    }
+}
+
+/* QR App Download Section */
+.qr-app-row {
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 12px;
+}
+
+.qr-app-col {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    flex: 1 1 0;
+    width: 269px;
+    height: 163px;
+    gap: 5px;
+}
+
+.qr-app-col img.qr-img {
+    max-width: 180px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+}
+
+.qr-app-col a img {
+    max-width: 120px;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 576px) {
+    .qr-app-row {
+        gap: 12px;
+    }
+
+    .qr-app-col {
+        min-width: 0;
+        max-width: 100%;
+        padding: 0 2px;
+    }
+
+    .qr-app-col img.qr-img {
+        max-width: 48vw;
+    }
+
+    .qr-app-col a img {
+        max-width: 32vw;
+    }
+}
+
+/* Mặc định ẩn domain mobile trên PC */
+.domain-mobile {
+    display: none;
+}
+
+/* Mobile-only page speed image */
+.page-speed-mobile {
+    display: none;
+    text-align: center;
+    margin: 0px auto;
+    max-width: 320px;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+/* Khi ở màn hình nhỏ (điện thoại), ẩn domain desktop, hiện domain mobile */
+@media (max-width: 767px) {
+    .domain-desktop {
+        display: none;
+    }
+
+    .domain-mobile {
+        display: block;
+    }
+
+    .redirect-links {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        margin-top: 10px;
+    }
+
+    /* Show mobile page speed image */
+    .page-speed-mobile {
+        display: block;
+    }
+}
