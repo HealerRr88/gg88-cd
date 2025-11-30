@@ -77,6 +77,10 @@ body {
     object-position: center;
 }
 
+.video-bg-mobile {
+    display: none;
+}
+
 /* ============ HEADER ============ */
 .header {
     display: flex;
@@ -166,7 +170,7 @@ body {
     display: none;
 }
 
-.content-box-speed-item{
+.content-box-speed-item {
     position: relative;
 }
 
@@ -177,19 +181,28 @@ body {
     top: 40%;
     font-weight: bold;
 }
+
 /* ============ RESPONSIVE STYLES ============ */
 @media (max-width: 768px) {
-    body {
-        background: url(../images/bg-mobile.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
     .video-bg {
         display: none;
     }
+    .video-bg-mobile{
+        display: block;
+    }
+    .video-bg-mobile {
+        position: fixed;
+        /* luôn đứng sau */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+        /* cho video xuống dưới toàn bộ */
+    }
 
-    .video-bg-video {
+    .-video {
         object-position: center top;
     }
 
@@ -230,13 +243,16 @@ body {
     .wp-footer .download-app {
         width: 100%;
     }
-    .main-layout .content-box{
+
+    .main-layout .content-box {
         padding-top: 1.5rem;
     }
-    .main-layout .content-box-speed .col-4{
+
+    .main-layout .content-box-speed .col-4 {
         padding-bottom: 10px;
     }
-    .content-box-speed-item .speed-meter{
+
+    .content-box-speed-item .speed-meter {
         font-size: 14px;
     }
 }
