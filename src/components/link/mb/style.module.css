@@ -1,0 +1,12 @@
+.linksContainer {
+  background: url(../../../assets/images/links-container-bg.webp) no-repeat center;
+  background-size: 100% 100%;
+}
+
+.speedCheckContainer {
+  bottom: -10px;
+}
+
+.speedCheckContainer img {
+  width: 60%;
+}

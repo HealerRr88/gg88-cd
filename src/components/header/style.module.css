@@ -1,0 +1,47 @@
+.logo {
+  width: 400px;
+}
+
+.backHomeBtn {
+  width: 150px;
+}
+
+.ballDeck {
+  width: 350px;
+}
+
+.ballGif {
+  width: 250px;
+  top: -18px;
+}
+
+.title {
+  bottom: -18px;
+}
+
+.title img {
+  min-width: 756px;
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 88%;
+  }
+
+  .ballDeck {
+    width: 225px;
+  }
+
+  .ballGif {
+    width: 150px;
+    top: 0px;
+  }
+
+  .title {
+    bottom: 10px;
+  }
+
+  .title img {
+    min-width: auto;
+  }
+}
