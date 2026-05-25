@@ -1,4 +1,4 @@
-import { DEFAULT_LINKS, LINK_KEYS } from '../../utils/configs';
+import { LINK_KEYS } from '../../utils/config';
 import { Link } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 import styles from './style.module.css';
@@ -12,7 +12,7 @@ export default function AppDownloadComponent({ links }) {
     <div className={`col-md-6 col-12 mx-auto mt-md-5 my-4 p-md-4 p-3 rounded-4 d-flex align-items-center justify-content-center ${styles.appDownloadContainer}`}>
       <Link
         to={
-          getLinkByKey(links, LINK_KEYS.TAI_APP_ANDROID, isMobile, DEFAULT_LINKS.TAI_APP_ANDROID)
+          getLinkByKey(links, LINK_KEYS.TAI_APP_ANDROID, isMobile)
         }
         className='flex-fill'
         target="_blank"
@@ -22,7 +22,7 @@ export default function AppDownloadComponent({ links }) {
       </Link>
       <Link
         to={
-          getLinkByKey(links, LINK_KEYS.TAI_APP_IOS, isMobile, DEFAULT_LINKS.TAI_APP_IOS)
+          getLinkByKey(links, LINK_KEYS.TAI_APP_IOS, isMobile)
         }
         className='flex-fill ms-md-4 ms-3'
         target="_blank"

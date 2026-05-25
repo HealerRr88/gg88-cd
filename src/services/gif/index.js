@@ -1,18 +1,21 @@
 import * as apiUrls from "../api_urls";
 import { get } from "../api_helpers";
 
-export default class LinkService {
+export default class GifService {
+
   async getAll() {
     try {
       return await get(
-        apiUrls.LINKS_GET_ALL,
-        apiUrls.LINKS_GET_ALL_WORKER,
+        apiUrls.GIFS_GET_ALL,
+        apiUrls.GIFS_GET_ALL_WORKER,
         {
           'Content-Type': 'application/json',
         }
       );
-    } catch (error) {
+    }
+    catch (error) {
       throw error;
     }
   }
+
 }

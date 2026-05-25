@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { DEFAULT_LINKS, LINK_KEYS } from '../../utils/configs';
+import { LINK_KEYS } from '../../utils/config';
 import { isMobile } from 'react-device-detect';
 import styles from './style.module.css';
 import logo from '../../assets/images/logo.webp';
@@ -19,7 +19,7 @@ export default function HeaderComponent({ links }) {
           {
             !isMobile && (
               <Link className={`h-100 position-absolute top-0 start-0 d-flex align-items-center ${styles.backHomeBtn}`} to={
-                getLinkByKey(links, LINK_KEYS.HOME, isMobile, DEFAULT_LINKS.TRANG_CHU)
+                getLinkByKey(links, LINK_KEYS.HOME, isMobile)
               }>
                 <img className='w-100' src={back_home_img} alt="" />
               </Link>
@@ -27,7 +27,7 @@ export default function HeaderComponent({ links }) {
           }
           <div className={`mx-auto ${styles.logo}`}>
             <Link to={
-              getLinkByKey(links, LINK_KEYS.HOME, isMobile, DEFAULT_LINKS.TRANG_CHU)
+              getLinkByKey(links, LINK_KEYS.HOME, isMobile)
             }>
               <img className='w-100' src={logo} alt="logo" />
             </Link>
